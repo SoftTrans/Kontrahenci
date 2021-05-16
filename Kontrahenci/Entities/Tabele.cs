@@ -12,6 +12,7 @@ namespace Kontrahenci.Entities
      public DateTime  Z_DNIA { get; set; }
      public int BANK  { get; set; }  // ID=0 nbp
      public int SREDNI { get; set; }  // 0 SREDNI, 1 SPRZEDAZY, 2 ZAKUPU
+     public List<Kursy> KURSY_L { get; set; }
 
     }
 }
