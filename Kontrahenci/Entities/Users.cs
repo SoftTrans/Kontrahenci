@@ -12,7 +12,7 @@ namespace Kontrahenci.Entities
      public string IMIE { get; set; }
      public string NAZWISKO { get; set; }
      public int  VISIBLE { get; set; }
-     public string ADRES { get; set; }
+     public string EMAIL { get; set; }
      public int LOCK { get; set; }
      public DateTime PASSCHANGED { get; set; }
      public string  PASS { get; set; }

@@ -7,6 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Kontrahenci.Entities;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Kontrahenci
 {
@@ -16,6 +19,8 @@ namespace Kontrahenci
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddDbContext<MyContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -25,8 +30,15 @@ namespace Kontrahenci
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseRouting();
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+            app.UseMvc();
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
